@@ -15,6 +15,15 @@ const port = process.env.PORT || 8000;
 io.on('connection', function(socket){
 	console.log('New User logged in');
 
+	socket.emit('newMessage', {
+		from: 'Admin',
+		text: 'Welcome to the chat application'
+	});
+	socket.broadcast.emit('newMessage', {
+		from: 'Admin',
+		text: 'New User joined to chat room'
+	});
+
 	socket.on('createMessage', function(msg){
 		msg.timeStamp = new Date().toString();
 		console.log('Message received from client', msg);
