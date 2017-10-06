@@ -14,10 +14,23 @@ const port = process.env.PORT || 8000;
 
 io.on('connection', function(socket){
 	console.log('New User logged in');
+
+	socket.on('createMessage', function(msg){
+		msg.timeStamp = new Date().toString();
+		console.log('Message received from client', msg);
+		io.emit('newMessage', {
+			from: msg.from,
+			text: msg.text,
+			createdAt: new Date().toString()
+		});
+	});
+
 	socket.on('disconnect', function(){
 		console.log('User is disconnected');
 	})
 });
+
+
 
 server.listen(port, function(){
 	console.log('Server running on port ' + port);
