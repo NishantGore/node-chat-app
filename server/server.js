@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 var socketIO = require('socket.io');
-var {generateMessage} = require('./util/messages.js');
+var {generateMessage, generateLocationMessage} = require('./util/messages.js');
 
 
 var app = express();
@@ -25,6 +25,13 @@ io.on('connection', function(socket){
 		io.emit('newMessage', generateMessage(msg.from, msg.text));
 		callback(); 
 	});
+
+	socket.on('createLocationMessage', function(location){
+		console.log('Location received', location);
+		var retObj = generateLocationMessage(location.from, location.lat, location.lon);
+		console.log("return obj: ", retObj);
+		socket.broadcast.emit('newLocationMessage', retObj);
+	})
 
 	socket.on('disconnect', function(){
 		console.log('User is disconnected');
