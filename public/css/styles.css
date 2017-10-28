@@ -1,0 +1,61 @@
+html, body { 
+  margin:0; 
+  padding:0; 
+  height:100%;
+  overflow: hidden;
+}
+
+#chat-people{
+	background-color: #013A6B;
+  	background-image: -webkit-linear-gradient(150deg, #013A6B 35%, #004E95 35%);
+	height: 100%;
+	opacity: 0.98;
+	font-size: 50px;
+	color: #d7d7d7;
+	font-weight: 700;
+	padding: 0 20px;
+}
+#chat-main{
+	height: 100%;
+	padding: 0;
+}
+#chat-list{
+	height: 92%;
+	padding: 0 15px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	font-size: 1.1em;
+}
+#messages{
+	padding: 0;
+}
+#chat-form{
+	bottom: 20px;
+	height: 8%;
+	min-height: 60px;
+	padding: 10px;
+	padding-right: 26px;
+	background: #e7e7e7;
+}
+.form-text{
+	display: block;
+	overflow: hidden;
+	padding-right: 10px;
+	height: 40px;
+}
+.form-text > input{
+	height: 100%;
+	border: none;
+	padding: 5px;
+}
+.form-buttons{
+	float: right;
+	height: 40px;
+}
+.form-button-custom{
+	height: 40px;
+	color: #e7e7e7;
+	font-size: 1.1em;
+	background: #074e8e;
+	border: none;
+}

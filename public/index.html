@@ -3,15 +3,32 @@
 <head>
 	<meta charset="utf-8">
 	<title>Node Chat app</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
+	<script src="js/moment.js"></script>
 </head>
 <body>
-	<h1>Welcome to the chat app</h1>
-	<ul id="messages"></ul>
-	<form id="message-form">
-		<input type="text" name="message" placeholder="Message">
-		<button>Send</button>
-	</form>
-	<button id="sendLocation">Send Location</button>
+
+	<div class="row" style="height: 100%;">
+		<div class="col-xs-2" id="chat-people">
+			People
+		</div>
+		<div class="col-xs-10" id="chat-main">
+			<div id="chat-list">
+				<ul id="messages" type="none"></ul>
+			</div>
+			<form id="chat-form">
+				<span class="form-buttons">
+					<button class="form-button-custom" type="submit">Send</button>
+					<button id="sendLocation" class="form-button-custom" type="button">Send location</button>
+				</span>
+				<span class="form-text" >
+					<input type="text" name="message" placeholder="Message" style="width: 100%;" autofocus autocomplete="off" />
+				</span>
+			</form>		
+		</div>
+	</div>
+	
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="js/index.js"></script>
